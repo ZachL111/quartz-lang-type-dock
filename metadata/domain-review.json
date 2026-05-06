@@ -1,0 +1,73 @@
+{
+  "repo": "quartz-lang-type-dock",
+  "language": "Julia",
+  "category": "Compilers",
+  "goal": "Create a Julia reference implementation for type workflows, centered on state machine modeling, transition tables, and invalid-transition tests.",
+  "review_model": {
+    "terms": [
+      "IR pressure",
+      "lowering drift",
+      "stack depth",
+      "diagnostic reach"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "IR pressure",
+      "signal": 58,
+      "slack": 22,
+      "drag": 24,
+      "confidence": 56,
+      "score": 122,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "lowering drift",
+      "signal": 65,
+      "slack": 50,
+      "drag": 31,
+      "confidence": 47,
+      "score": 134,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "stack depth",
+      "signal": 69,
+      "slack": 50,
+      "drag": 8,
+      "confidence": 45,
+      "score": 209,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "diagnostic reach",
+      "signal": 87,
+      "slack": 32,
+      "drag": 15,
+      "confidence": 57,
+      "score": 218,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "IR pressure",
+      "signal": 92,
+      "slack": 33,
+      "drag": 32,
+      "confidence": 60,
+      "score": 181,
+      "lane": "ship"
+    }
+  ]
+}
